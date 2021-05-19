@@ -10,51 +10,51 @@ let nombre;
 let carrera;
 let promedio1 = 0;
 let promedio2 = 0;
-let notaRestante; // x
+let notaRestante; 
 
-// Ask details
+// datos alumno
 nombre = prompt('Ingrese su nombre y apellido');
 carrera = prompt('Ingrese su carrera');
 notaMin = parseInt(prompt('Ingrese la nota requerida para aprobación'));
 
-// ask for jubjects
+// ingresar ramos
 for (let i = 0; i <= 2; i++) {
   materias.push(prompt(`Ingrese nombre de materia n°${i + 1}:`));
 }
-// ask for html grades
+// ingresar notas ramo1
 for (let i = 0; i <= 2; i++) {
   materia1.push(prompt(`Ingrese nota ${i + 1} [${materias[0]}]:`));
   // acc value
   promedio1 += parseInt(materia1[i]);
 }
-// ask for css grades
+// ingresar notas ramo2
 for (let i = 0; i <= 2; i++) {
   materia2.push(prompt(`Ingrese nota ${i + 1} [${materias[1]}]:`));
   // acc value
   promedio2 += parseInt(materia2[i]);
 }
-// ask for js grades
+// ingresar notas ramo3
 for (let i = 0; i <= 1; i++) {
   materia3.push(prompt(`Ingrese nota ${i + 1} [${materias[2]}]:`));
 }
 
-// calc final grades
+// cal final
 promedio1 = (promedio1 / 3).toFixed(2);
 promedio2 = (promedio2 / 3).toFixed(2);
 notaRestante = (3 * notaMin - materia3[0] - materia3[1]).toFixed(2);
 
-// check if aproves
-// materia 1
+// check si aprueba
+// ramo1
 promedio1 >= notaMin
   ? (promedio1 = `<td class="text-success"><strong>${promedio1}</strong></td>`)
   : (promedio1 = `<td class="text-danger"><strong>${promedio1}</strong></td>`);
 
-// materia 2
+// ramo2
 promedio2 >= notaMin
   ? (promedio2 = `<td class="text-success"><strong>${promedio2}</strong></td>`)
   : (promedio2 = `<td class="text-danger"><strong>${promedio2}</strong></td>`);
 
-// write table
+// tabla
 document.write(`<div class="container">
 <header class="details">
   <h1>Notas Finales</h1>
